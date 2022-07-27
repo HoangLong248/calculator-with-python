@@ -12,7 +12,7 @@ pipeline {
 
         stage ("Run Program") {
             steps {
-                sh 'python3 calculator.py'
+                sh 'python3 calculator.py 123 456'
             }
         }
     }
