@@ -7,7 +7,7 @@ pipeline {
 
         stage ("Docker Build") {
             steps {
-                sh 'docker build -t --no-cache calculator .'
+                sh 'docker build --no-cache -t calculator .'
                 sh 'docker tag calculator 192.168.1.29:5000/calculator'
             }
         }
