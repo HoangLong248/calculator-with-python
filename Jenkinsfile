@@ -1,19 +1,21 @@
 pipeline {
     agent any
-    triggers{
-         pollSCM("* * * * *")
-    }
+    // triggers{
+    //      pollSCM("* * * * *")
+    // }
     stages {
+
         stage ("Unittest Test") {
             steps {
-                sh 'python3 test_calculator.py'
+                // sh 'python3 test_calculator.py'
+                sh 'echo "Hello Flask"'
             }
         }
 
-        stage ("Run Program") {
-            steps {
-                sh 'python3 calculator.py 123 456'
-            }
-        }
+        // stage ("Run Program") {
+        //     steps {
+        //         sh 'python3 calculator.py'
+        //     }
+        // }
     }
 }
