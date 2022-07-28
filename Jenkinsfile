@@ -1,21 +1,21 @@
 pipeline {
     agent any
-    // triggers{
-    //      pollSCM("* * * * *")
-    // }
+    triggers{
+         pollSCM("* * * * *")
+    }
     stages {
 
-        stage ("Unittest Test") {
+        stage ("Docker Build") {
             steps {
-                // sh 'python3 test_calculator.py'
-                sh 'echo "Hello Flask"'
+                sh 'docker build -t calculator .'
+                sh 'docker tag calculator 192.168.1.29:5000/calculator'
             }
         }
 
-        // stage ("Run Program") {
-        //     steps {
-        //         sh 'python3 calculator.py'
-        //     }
-        // }
+        stage ("Docker Push") {
+            steps {
+                sh 'docker push 192.168.1.29:5000/calculator'
+            }
+        }
     }
 }
