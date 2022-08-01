@@ -19,7 +19,7 @@ pipeline {
 
         stage ("Deploy to Staging") {
             steps {
-                sh 'docker compose -f docker-compose.yml up -d -p calculator'
+                sh 'docker compose -f docker-compose.yml -p calculator up -d '
             }
         }
 
