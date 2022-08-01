@@ -28,7 +28,7 @@ pipeline {
         stage ("Acceptance test") {
             steps {
                 sleep 60
-                sh "/home/node01/jenkins_cicd/chap4/acceptance_test.sh"
+                sh "test $(curl --location --request GET 'http://192.168.1.29:8001/sum?num1=123&num2=456') -eq 56088"
             }
         }
     }
