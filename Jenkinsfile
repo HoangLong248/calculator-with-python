@@ -27,7 +27,7 @@ pipeline {
             steps {
                 sh 'docker compose -f acceptance/docker-compose-acceptance.yml build test'
                 sh 'docker compose -f acceptance/docker-compose-acceptance.yml up -d'
-                sh 'test $(curl docker wait acceptance_test_1) -eq 0'
+                sh 'test $(docker wait acceptance_test_1) -eq 0'
             }
         }
     }
