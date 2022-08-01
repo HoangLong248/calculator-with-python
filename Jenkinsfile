@@ -33,7 +33,8 @@ pipeline {
 
     post {
         always {
-            sh "docker compose -f docker-compose.yml -f acceptance/docker-compose-acceptance.yml -p acceptance down"
+            sh "echo 'hello world'"
+            // sh "docker compose -f acceptance/docker-compose-acceptance.yml -p acceptance down"
         }
     }
 }
