@@ -24,5 +24,12 @@ pipeline {
                 sh 'docker run -d -p 8001:8001 --name calculator 192.168.1.29:5000/calculator'
             }
         }
+
+        stage ("Acceptance test") {
+            steps {
+                sleep 60
+                sh "/home/node01/jenkins_cicd/chap4/acceptance_test.sh"
+            }
+        }
     }
 }
