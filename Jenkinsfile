@@ -29,6 +29,7 @@ pipeline {
                 sh 'test $(docker wait acceptance-test-1) -eq 0'
             }
         }
+    }
 
     post {
         always {
@@ -36,4 +37,5 @@ pipeline {
             sh 'docker compose -f docker-compose.yml down'
         }
     }
+    
 }
