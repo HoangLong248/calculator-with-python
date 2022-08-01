@@ -13,7 +13,7 @@ pipeline {
 
         stage ("Docker Push") {
             steps {
-                sh 'docker compose push 192.168.1.29:5000/calculator'
+                sh 'docker compose push calculator'
             }
         }
 
