@@ -19,7 +19,7 @@ pipeline {
 
         stage ("Deploy to Staging") {
             steps {
-                sh 'docker compose up -f docker-compose.yml -d'
+                sh 'docker compose up -d'
             }
         }
 
@@ -34,7 +34,7 @@ pipeline {
 
     post {
         always {
-            sh "docker-compose -f docker-compose.yml -f acceptance/docker-compose-acceptance.yml -p acceptance down"
+            sh "docker compose -f docker-compose.yml -f acceptance/docker-compose-acceptance.yml -p acceptance down"
         }
     }
 }
